@@ -6,59 +6,142 @@
 .column.lhs {
   height: 100vh;
   min-height: 600px;
+  position: fixed;
+}
+
+@media only screen and (max-width: 768px) {
+  .column.lhs {
+    position: relative;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .column.rhs {
+    position: relative;
+    width: 100%;
+  }
 }
 
 @media only screen and (min-width: 768px) {
-  .column.lhs {
-    height: 100vh;
-    min-height: 600px;
+  .lhs-bg {
+    height: 100%;
+    width: 60%;
+    position: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 1)), url("/src/images/sj1.jpeg");
+    transition: opacity 1s;
+    margin: -0.75rem;
+    opacity: 0;
+  }
+  .lhs-bg.bg-first {
+    opacity: 1;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1));
+  }
+  .lhs-bg.bg-second {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1)), url("/src/images/gc.jpg");
+  }
+  .lhs-bg.bg-third {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1)), url("/src/images/piggyback.jpg");
+  }
+  .lhs-bg.bg-fourth {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1)), url("/src/images/sj1.jpeg");
+  }
+  .lhs-bg.bg-fifth {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1)), url("/src/images/sj1.jpeg");
   }
 }
 
 .text-container {
   position: relative;
   z-index: 3;
+  padding: 2rem;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 768px) {
+  .lhs .text-container {
+    margin-left: 20px;
+    position: absolute;
+    bottom: 0px;
+    margin-bottom: 100px;
+  }
 }
 
 .lhs .title {
-  font-size: 10vw;
+  font-size: 6rem;
   color: #fff;
-  font-family: Marthalica;
+  font-family: Khula-Regular;
   padding-top: 50vh;
+  text-transform: uppercase;
 }
 
 @media only screen and (max-width: 768px) {
   .lhs .title {
-    font-size: 15vw;
+    font-size: 4rem;
   }
 }
 
 .lhs .subtitle {
   color: #fff;
   font-family: Marthalica;
+  font-size: 4rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .lhs .subtitle {
+    font-size: 3rem;
+  }
 }
 
 .column.rhs {
-  height: 100vh;
-  background: #faf2e7;
+  /* height: 100vh; */
   position: relative;
   z-index: 3;
   min-height: 600px;
 }
 
-.rhs .text-container {
+@media only screen and (min-width: 768px) {
+  .column.rhs {
+    margin-left: 60%;
+  }
+}
+
+.rhs .landing .text-container {
   max-width: 500px;
   margin: 0px auto;
-  padding-top: calc(50vh - 170px - 120px);
+  padding-top: calc(50vh - 400px - 138px);
+}
+
+@media only screen and (max-width: 768px) {
+  .rhs .landing .text-container {
+    padding-top: 6rem;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .rhs .landing .text-container {
+    padding-top: 5rem;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .rhs .landing .text-container {
+    padding-top: 1rem;
+  }
 }
 
 .rhs .title {
   color: #6b5840;
   font-family: Rosario;
+}
+
+@media only screen and (min-width: 768px) {
+  .rhs section:not(.landing) .title {
+    padding-top: 10rem;
+  }
 }
 
 .rhs .subtitle {
@@ -79,6 +162,7 @@
 .rhs .location.subtitle {
   font-style: italic;
   font-family: Rosario;
+  margin-bottom: 3rem;
 }
 
 .rhs .location.subtitle::after {
@@ -103,6 +187,8 @@
 }
 
 .control .button.is-primary.is-outlined:active {
+  background-color: #4c453c;
+  box-shadow: 0 0 0 0.125em rgba(76, 69, 60, 0.25);
   border-color: #4c453c;
 }
 
@@ -112,37 +198,59 @@
   border-color: #4c453c;
 }
 
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 .guest-form {
   position: relative;
   z-index: 2;
+}
+
+.form-message p {
+  font-family: Khula-Bold;
 }
 
 .form-message.success p {
   color: #5ea75e;
 }
 
-.form-message.success {
-  -webkit-animation: cssAnimation 5s forwards; 
-    animation: cssAnimation 5s forwards;
+/* .form-message.success {
+  -webkit-animation: cssAnimation 5s forwards;
+  animation: cssAnimation 5s forwards;
 }
 
 @keyframes cssAnimation {
-  0%   {opacity: 1;}
-  90%  {opacity: 1;}
-  100% {opacity: 0;}
-}
-@-webkit-keyframes cssAnimation {
-  0%   {opacity: 1;}
-  90%  {opacity: 1;}
-  100% {opacity: 0;}
+  0% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
+@-webkit-keyframes cssAnimation {
+  0% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+} */
+
 .form-message.error p {
-  color: #ce8e48;
+  color: a#e22c1f;
 }
 
 .pear-bg-header {
-  height: 120px;
+  height: 400px;
   width: 100%;
   position: relative;
   display: block;
@@ -153,57 +261,74 @@
 }
 
 .pear-bg-footer {
-  height: 250px;
+  height: 200px;
   width: 100%;
-  position: absolute;
   display: block;
+  position: relative;
   overflow: hidden;
   z-index: 2;
+  margin-top: auto;
   bottom: 0px;
   right: 0px;
 }
 
-.pear-bg {
-  background-position: right;
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-  background-image: url("/src/images/pear-flowers-2.png");
-  height: 100%;
-  width: 100%;
-  right: -100px;
-  bottom: 0px;
-  position: absolute;
-  max-width: 600px;
-}
-
-.pear-bg-header .pear-bg {
-  transform: scaleX(-1);
-  left: -110px;
-  background-position: left bottom;
-}
-
 @media only screen and (max-width: 768px) {
-  .pear-bg-footer .pear-bg {
-    bottom: -70px;
+  .pear-bg-header {
+    height: 200px;
   }
 }
 
+@media only screen and (max-width: 768px) {
+  .pear-bg-footer {
+    height: 100px;
+    margin-top: auto;
+    position: relative;
+    justify-self: flex-end;
+  }
+}
+
+.pear-bg {
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  bottom: 0px;
+  position: absolute;
+  background-position: right;
+}
+
+.pear-bg-header .pear-bg {
+  background-image: url("/src/images/pear_one.png");
+  transform: scaleX(-1);
+  left: -20px;
+}
+
+.pear-bg-footer .pear-bg {
+  background-image: url("/src/images/pear_two.png");
+}
+
+/* @media only screen and (max-width: 768px) {
+  .pear-bg-footer {
+    bottom: 50px;
+  }
+} */
+
 /* for parallax */
 
-@media only screen and (max-width: 768px) {
-  html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
+/* @media only screen and (max-width: 768px) {
+  html,
+  body {
     height: 100%;
+  }
+  .body {
+    position: fixed;
+    -webkit-overflow-scrolling: touch;
   }
   .main-content {
     perspective: 1px;
     transform-style: preserve-3d;
-    overflow-y: auto;
     overflow-x: hidden;
     overflow-y: scroll;
-    overflow-x: hidden;
   }
   .lhs .text-container {
     position: absolute;
@@ -226,8 +351,325 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 1)), url("/src/images/sj1.jpeg");
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 1)), url("/src/images/waves-bg.jpg");
     transform: translateZ(-1px) scale(2.4);
-    pointer-events: none;
   }
+} */
+
+section.section {
+  min-height: 100vh;
+  background: #fffdfb;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .section.landing {
+    min-height: 800px;
+    height: 100vh;
+  }
+}
+
+.contents li {
+  margin-bottom: 1rem;
+}
+
+.contents li a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.contents li a:hover {
+  text-decoration: underline;
+}
+
+.separator {
+  width: calc(100%);
+  margin: 0 0 2.4rem;
+  border-bottom: 0.1rem solid #d4d5d7;
+}
+
+.bg__video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 1));
+}
+
+.fullscreen-bg__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.scheduleContainer {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 1.6rem;
+}
+
+.scheduleTime {
+  flex: 3;
+  font-weight: 600;
+}
+
+.scheduleContent {
+  flex: 4;
+}
+
+.scheduleTitle {
+  font-weight: 600;
+}
+
+.map {
+  width: 100%;
+  margin: 2rem -1rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .map {
+    width: calc(100% + 2rem);
+    margin: 2rem -1rem;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .mobile-bg-container {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .rhs section:not(.landing) .title {
+    position: absolute;
+    top: -70px;
+    color: #fff;
+  }
+  .text-container {
+    padding: 1rem;
+  }
+  .text-container .separator {
+    display: none;
+  }
+}
+
+.mobile-bg-container {
+  height: 400px;
+  width: 100%;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.mobile-bg-container .mobile-bg {
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  filter: blur(1px);
+}
+
+.schedule .mobile-bg {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 1)), url("/src/images/piggyback.jpg");
+}
+
+.venue .mobile-bg {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 1)), url("/src/images/gc.jpg");
+}
+
+.rsvp .mobile-bg {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 1)), url("/src/images/sj1.jpeg");
+}
+
+.rsvpSubtitle {
+  padding-bottom: 0.8rem;
+}
+
+.guest-form .field {
+  padding-bottom: 1.6rem;
+}
+
+.fieldLabel {
+  padding-bottom: 0.8rem;
+  display: block;
+  font-weight: 600;
+}
+
+/* radio */
+
+.labelContainer {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  /* font-size: 22px; */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+
+.labelContainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #faf2e7;
+  border-radius: 50%;
+  border: 1px solid #6b5840;
+}
+
+/* On mouse-over, add a grey background color */
+
+.labelContainer:hover input~.checkmark {
+  background-color: #6b5840;
+  border: none;
+}
+
+/* When the radio button is checked, add a blue background */
+
+.labelContainer input:checked~.checkmark {
+  background-color: #5ea75e;
+  border: none;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+
+.labelContainer input:checked~.checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+
+.labelContainer .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+/* accomm */
+
+.accommodation-container {
+  margin-bottom: 20px;
+}
+
+.accommodation-container a {
+  overflow-wrap: anywhere;
+}
+
+.accommodation-image-container {
+  height: 300px;
+  width: 100%;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+  .accommodation-image-container {
+    height: 200px;
+  }
+}
+
+.accommodation-image-container figure.accommodation-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  bottom: 0px;
+  position: absolute;
+  background-position: center;
+}
+
+.accommodation-image#tiona {
+  background-image: url("/src/images/tiona.jpg");
+}
+
+.accommodation-image#pacific-palms {
+  background-image: url("/src/images/pacific-palms.jpg");
+}
+
+.accommodation-image#forster {
+  background-image: url("/src/images/forster.jpg");
+}
+
+h2.accommodation-header {
+  font-size: 18px;
+  font-weight: 600;
+  padding: 16px 0 8px;
+}
+
+/* checkbox */
+
+/* Create a custom checkbox */
+
+.radioContainer .checkmark {
+  border-radius: 0px;
+}
+
+/* Style the checkmark/indicator */
+
+.radioContainer .checkmark:after {
+  border-radius: 0px;
+  left: 10px;
+  top: 6px;
+  width: 7px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  background: inherit;
+}
+
+/* on disabled */
+
+.radioContainer[disabled] .checkmark {
+  background-color: #f5f5f5;
+  border-color: #f5f5f5;
+  box-shadow: none;
+  color: #7a7a7a;
+}
+
+.radioContainer[disabled] {
+  color: #7a7a7a;
+  cursor: not-allowed;
+}
+
+.radioContainer[disabled]:hover input~.checkmark {
+  background-color: #f5f5f5;
+  border: none;
+  color: #7a7a7a;
+  cursor: not-allowed;
 }
