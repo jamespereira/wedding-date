@@ -89,14 +89,14 @@ export default function App() {
           <div className="column is-three-fifths lhs parallax">
             <div className="lhs-bg bg-first">
               <div className="bg__video-overlay" />
-              <video loop muted autoPlay poster={Poster} className="fullscreen-bg__video">
+              <video loop muted autoPlay playsInline poster={Poster} className="fullscreen-bg__video">
                 <source src={Video} type="video/mp4" />
               </video>
             </div>
-            <div className="lhs-bg bg-second" />
-            <div className="lhs-bg bg-third" />
-            <div className="lhs-bg bg-fourth" />
-            <div className="lhs-bg bg-fifth" />
+            <figure className="lhs-bg bg-second" />
+            <figure className="lhs-bg bg-third" />
+            <figure className="lhs-bg bg-fourth" />
+            <figure className="lhs-bg bg-fifth" />
 
 
             <TextContainer />

@@ -39,3 +39,10 @@ code {
    url("./fonts/marthalica-font/Marthalica-X3Zg2.otf") format("truetype");
    font-weight: bold;
  }
+
+ @font-face {
+  font-family: "Scriptina";
+  src: local("Scriptina"),
+   url("./fonts/scriptina/SCRIPTIN.ttf") format("truetype");
+   font-weight: bold;
+ }

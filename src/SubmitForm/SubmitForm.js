@@ -16,6 +16,9 @@ class SubmitForm extends Component {
 
     handleInputChange(event) {
         this.setState({ [event.target.name]: event.target.value })
+        if(this.state.showMessage) {
+            this.setState({ showMessage: false})
+        }
     }
 
     validateInputs() {

@@ -37,19 +37,19 @@
   }
   .lhs-bg.bg-first {
     opacity: 1;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1));
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.75));
   }
   .lhs-bg.bg-second {
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1)), url("/src/images/gc.jpg");
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.75)), url("/src/images/gc.jpg");
   }
   .lhs-bg.bg-third {
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1)), url("/src/images/piggyback.jpg");
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.75)), url("/src/images/piggyback.jpg");
   }
   .lhs-bg.bg-fourth {
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1)), url("/src/images/sj1.jpeg");
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.75)), url("/src/images/sj1.jpeg");
   }
   .lhs-bg.bg-fifth {
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1)), url("/src/images/sj1.jpeg");
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.75)), url("/src/images/sj1.jpeg");
   }
 }
 
@@ -66,7 +66,7 @@
     margin-left: 20px;
     position: absolute;
     bottom: 0px;
-    margin-bottom: 100px;
+    margin-bottom: 2vh;
   }
 }
 
@@ -246,7 +246,7 @@
 } */
 
 .form-message.error p {
-  color: a#e22c1f;
+  color: #e22c1f;
 }
 
 .pear-bg-header {
@@ -410,18 +410,31 @@ section.section {
 }
 
 .scheduleContainer {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: minmax(150px,250px) minmax(200px,400px);
+  grid-gap: 1.6rem;
   padding-bottom: 1.6rem;
 }
 
+
+@media only screen and (max-width: 1000px) {
+  .scheduleContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 0.4rem;
+    padding-bottom: 1.6rem;
+  }
+
+  .scheduleContent {
+    margin-bottom: 1.6rem;
+  }
+}
+
 .scheduleTime {
-  flex: 3;
   font-weight: 600;
 }
 
 .scheduleContent {
-  flex: 4;
 }
 
 .scheduleTitle {
@@ -461,7 +474,7 @@ section.section {
 }
 
 .mobile-bg-container {
-  height: 400px;
+  height: 300px;
   width: 100%;
   margin-bottom: 20px;
   overflow: hidden;
@@ -472,7 +485,6 @@ section.section {
   width: 100%;
   background-position: center;
   background-size: cover;
-  filter: blur(1px);
 }
 
 .schedule .mobile-bg {

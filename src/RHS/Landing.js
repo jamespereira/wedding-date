@@ -4,12 +4,12 @@ const Landing = (props) => {
     return (
         <section className="section landing has-text-centered" id="landing">
             <div className="pear-bg-header">
-                <div className="pear-bg"></div>
+                <figure className="pear-bg" />
             </div>
 
             <div className="text-container">
                 <h1 className="title is-3 pb-4">TIONA, NSW</h1>
-                <h2 className="date subtitle is-5">Saturday, 22nd of January, 2022</h2>
+                <h2 className="date subtitle is-5">Saturday, 22 January 2022</h2>
                 <p className="location subtitle is-6">{props.countdown}</p>
                 <ul className="contents">
                     <li><a href="#venue"><p>Our Venue</p></a></li>
@@ -23,7 +23,7 @@ const Landing = (props) => {
             </div>
 
             <div className="pear-bg-footer">
-                <div className="pear-bg"></div>
+                <figure className="pear-bg" />
             </div>
 
         </section>
