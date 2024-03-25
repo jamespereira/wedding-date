@@ -59,7 +59,7 @@ export default function App() {
 
 
   function getCountdown() {
-    var formattedDate = new Date("Jan 22 2022 15:30:00 GMT+1000").getTime();
+    var formattedDate = new Date("Jan 22 2022 14:30:00 GMT+1100").getTime();
 
     var newDate = setInterval(function () {
       var now = new Date().getTime();

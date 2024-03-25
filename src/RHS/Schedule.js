@@ -25,7 +25,8 @@ const Schedule = () => {
                     </div>
                 </div>
                 <br />
-                <p><i>Dress code for the day will be cocktail attire.</i></p>
+                <p><i>Dress code for the day will be cocktail attire. <br />
+                Regarding gifts, we'll have a wishing well at the reception to help with our honeymoon later this year when it's safer to travel.</i></p>
 
             </div>
         </section>
